@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Project's name
-project(test)
+project(foo)
 
 # method 1, You can build directory outside, then cd, run cmake /path/to/source/
 # In this way, SOURCE_DIR and BINARY_DIR is decided implicitly.
@@ -59,10 +59,11 @@ endif ()
 
 
 
-add_executable(test ${PRJ_SRC_FILES}) 
+add_executable(foo ${PRJ_SRC_FILES}) 
 
-target_link_libraries (test  ${EXTRA_LIBS})
+target_link_libraries (foo  ${EXTRA_LIBS})
 
 
 # This produce install target in Makefile. 
-install(TARGETS test DESTINATION bin)
+install(TARGETS foo DESTINATION bin)
+add_subdirectory(test)

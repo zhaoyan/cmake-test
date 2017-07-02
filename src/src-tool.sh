@@ -13,7 +13,9 @@ if [ ! -f ./Doxyfile ]; then
 	doxygen -g
 	echo "GENERATE_LATEX = NO" >> Doxyfile
 	echo "INPUT = ./src" >> Doxyfile
-	                                                     
+		echo 	"RECURSIVE = YES" >>Doxyfile
+		echo "EXTRACT_ALL = YES" >>Doxyfile
+		echo "EXCLUDE_PATTERNS = */*.py" >>Doxyfile                                                     
 fi
 
 cd ./src

@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include"sum.h"
-#include"testConfig.h"
+#include "sum.h"
+#include "testConfig.h"
 #include <vector>
 #include <math.h>
 
@@ -8,14 +8,14 @@
 #include"MathFunctions.h"
 #endif
 #define YYY 1
-int g_i = 100;
+//g_i is global
 
 int main(){
 		int i = 2;
-		int j = 3;	
-int yan = 123;
-int yan123 = 333;
-int yin = 0;
+		int j = 3;
+//yan is good 
+
+
 
 		std::vector<int> vi;
 	     	
@@ -33,7 +33,7 @@ int yin = 0;
 				printf("Log function can be used in this platform\n")
 		#endif
 		printf("mysqrt of 4 is %f\n", result);
-		printf("%d + %d is %d\n", g_i ,j,Sum(i,j));
+		printf("%d + %d is %d\n", i ,j,Sum(i,j));
 		printf("hello world\n");
 		return 0;
 }

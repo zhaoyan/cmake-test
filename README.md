@@ -10,7 +10,7 @@ cmake ../src
 cd src
 ./src-tool.sh
 cd ..
-doxygen
+doxygen Doxygen
 
 3)Vim plugin
 cd src
@@ -20,3 +20,4 @@ vim main.cpp
 :cs add cscope.out
 
 4)Test 
+./test/testlib/testlib
