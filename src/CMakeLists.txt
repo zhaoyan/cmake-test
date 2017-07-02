@@ -28,13 +28,13 @@ check_function_exists (log HAVE_LOG)
 option(USE_MYMATH "Use tutorial provided math implementation" ON)
 
 configure_file (
-		"${PROJECT_SOURCE_DIR}/../include/testConfig.h.in"
+		"${PROJECT_SOURCE_DIR}/testConfig.h.in"
 		"${PROJECT_BINARY_DIR}/testConfig.h"
 		)
 
 # set include directory
 set(PROJECT_INCLUDE_DIRECTORIES
-		${PROJECT_SOURCE_DIR}/../include
+		${PROJECT_SOURCE_DIR}/
 		${PROJECT_BINARY_DIR}/
 		# add more head file here
 					)
