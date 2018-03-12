@@ -25,14 +25,20 @@ set(TEST_VERSION_MINOR 0)
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 check_function_exists (log HAVE_LOG)
 
+#You can use USE_MYMATH in your .cpp file.
+#you can put #cmakedefine USE_MYMATH in testConfig.h.in,
+#CMake will produce config.h file in your build dirctory. 
+#You also can use cmake -DUSE_MYMATH=OFF to turn off this option
 option(USE_MYMATH "Use tutorial provided math implementation" ON)
 
+#here you can specify your Config file
 configure_file (
 		"${PROJECT_SOURCE_DIR}/testConfig.h.in"
 		"${PROJECT_BINARY_DIR}/testConfig.h"
 		)
 
 # set include directory
+#Why you need add PROJECT_BINARY_DIR? because testConfig.h file is produced there.
 set(PROJECT_INCLUDE_DIRECTORIES
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_BINARY_DIR}/
@@ -47,6 +53,7 @@ add_definitions("-Wall" "-g")
 					  #${PROJECT_SOURCE_DIR}/bmi.cpp
 									#… )
 # method 2 to add some source file
+#CMAKE_SOURCE_DIR is top-level CMakeLists.txt file location. 
 aux_source_directory(${CMAKE_SOURCE_DIR} PRJ_SRC_FILES)
 
 	
@@ -67,6 +74,8 @@ target_link_libraries (foo  ${EXTRA_LIBS})
 # This produce install target in Makefile. 
 install(TARGETS foo DESTINATION bin)
 
+
+
 # build gtest function here. If you don't need it, just omit below statement.
 option(BUILD_TEST "Build Python SWIG module" OFF)
 if(BUILD_TEST)
@@ -78,4 +87,19 @@ endif()
 option(BUILD_SWIG "Build Python SWIG module" OFF)
 if(BUILD_SWIG)
 add_subdirectory(swig)
+endif()
+
+
+macro(print_all_variables)
+    message(STATUS "print_all_variables------------------------------------------{")
+    get_cmake_property(_variableNames VARIABLES)
+    foreach (_variableName ${_variableNames})
+        message(STATUS "${_variableName}=${${_variableName}}")
+    endforeach()
+    message(STATUS "print_all_variables------------------------------------------}")
+endmacro()
+
+option(DEBUG_CMAKE "Print out all CMAKE variables" OFF)
+if(DEBUG_CMAKE)
+print_all_variables()
 endif()

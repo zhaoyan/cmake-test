@@ -39,4 +39,6 @@ set_target_properties(libgmock PROPERTIES
 include_directories("${source_dir}/googletest/include"
                     "${source_dir}/googlemock/include")
 
-add_subdirectory(testlib)
+#The only thing I need to change is here, add your own test directory here
+#And make sure each sub-direcotry has its own CMakeLists.txt
+add_subdirectory(testsum)
