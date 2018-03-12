@@ -4,6 +4,7 @@
 // a hack square root calculation using simple operations
 double mysqrt(double x)
 {
+ printf("Now call mysqrt function\n");
   if (x <= 0) {
     return 0;
   }

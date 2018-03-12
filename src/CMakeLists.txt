@@ -66,4 +66,16 @@ target_link_libraries (foo  ${EXTRA_LIBS})
 
 # This produce install target in Makefile. 
 install(TARGETS foo DESTINATION bin)
+
+# build gtest function here. If you don't need it, just omit below statement.
+option(BUILD_TEST "Build Python SWIG module" OFF)
+if(BUILD_TEST)
 add_subdirectory(test)
+
+endif()
+
+# build swig function here. If you don't need it, just omit below statement.
+option(BUILD_SWIG "Build Python SWIG module" OFF)
+if(BUILD_SWIG)
+add_subdirectory(swig)
+endif()
