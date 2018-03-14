@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
 
-find_package(SWIG REQUIRED)
 find_package(Java REQUIRED)
 find_package(JNI REQUIRED)
 include(UseJava)
@@ -11,27 +10,27 @@ set( CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_BINARY_DIR} )
 
 # Build the C++ code into a dynamic library: example.dll (on Windows) or libexample.so (on Linux)
 swig_add_module(
-    Mysqrtjava 
+	MyMathjava 
     java 
-    ../MysqrtSwig.i 
-    ../../MathFunctions/mysqrt.cxx
+	../MyMathSwig.i 
+	../../MathFunctions/MathFunctions.cxx
 )
 
 # For convenience we copy the dynamic library to the current build folder
 add_custom_command(
-    TARGET Mysqrtjava 
+	TARGET MyMathjava 
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Mysqrtjava> ${CMAKE_CURRENT_BINARY_DIR}
+	COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:MyMathjava> ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 # Build the Java code into ExampleJNI.jar
 add_jar(
-	MysqrtjavaJNI
+	MyMathjavaJNI
     SOURCES
-	${CMAKE_SWIG_OUTDIR}/MysqrtSwig.java
-	${CMAKE_SWIG_OUTDIR}/MysqrtSwigJNI.java
+	${CMAKE_SWIG_OUTDIR}/MyMathSwig.java
+	${CMAKE_SWIG_OUTDIR}/MyMathSwigJNI.java
 )
-add_dependencies( MysqrtjavaJNI Mysqrtjava )
+add_dependencies( MyMathjavaJNI MyMathjava )
 
 # Finally build the demonstration code into Main.jar
 
@@ -41,4 +40,4 @@ add_jar(
     SOURCES main.java
     ENTRY_POINT main
 )
-add_dependencies( Main MysqrtjavaJNI )
+add_dependencies( Main MyMathjavaJNI )

@@ -1,4 +1,4 @@
-%module MysqrtSwig
+%module MyMathSwig
 
 %{
 #include "../MathFunctions/MathFunctions.h"

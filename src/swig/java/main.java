@@ -2,7 +2,7 @@ public class main
 {
     public static void main(String argv[]) 
     {
-        System.loadLibrary("Mysqrtjava"); // Attempts to load example.dll (on Windows) or libexample.so (on Linux)
-        System.out.println(MysqrtSwig.mysqrt(4.0));
+        System.loadLibrary("MyMathjava"); // Attempts to load example.dll (on Windows) or libexample.so (on Linux)
+        System.out.println(MyMathSwig.mysqrt(4.0));
     }
 }

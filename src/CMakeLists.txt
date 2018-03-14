@@ -22,6 +22,10 @@ set(CMAKE_VERBOSE_MAKEFILE true)
 set(TEST_VERSION_MAJOR 1)
 set(TEST_VERSION_MINOR 0)
 
+#this is global setting cxx_flags,
+#use this way to preserve the old value.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
+
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 check_function_exists (log HAVE_LOG)
 
@@ -67,9 +71,11 @@ endif ()
 
 
 add_executable(foo ${PRJ_SRC_FILES}) 
-
 target_link_libraries (foo  ${EXTRA_LIBS})
 
+#if you want to use third-paty library, use below cmake syntax.
+#find_library(POCO_FOUNDATION PocoFoundation)
+#target_link_libraries (foo  ${POCO_FOUNDATION})
 
 # This produce install target in Makefile. 
 install(TARGETS foo DESTINATION bin)

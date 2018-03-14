@@ -2,9 +2,9 @@
 #So I need to add it to he project.
 file(GLOB SRCS *.cpp ../../sum.cpp)
 
-ADD_EXECUTABLE(testlib ${SRCS})
+ADD_EXECUTABLE(testsum ${SRCS})
 
-TARGET_LINK_LIBRARIES(testlib
+TARGET_LINK_LIBRARIES(testsum
     #libfoo
     libgtest
     libgmock

@@ -42,3 +42,4 @@ include_directories("${source_dir}/googletest/include"
 #The only thing I need to change is here, add your own test directory here
 #And make sure each sub-direcotry has its own CMakeLists.txt
 add_subdirectory(testsum)
+add_subdirectory(testmath)

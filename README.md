@@ -11,9 +11,10 @@ sudo apt-get install swig
 3) How to build?
 In cmake-test directory, mkdir build
 cd build
-if you want to build with gtest and swig support.
+if you want to build with gtest and swig support, run
 cmake -DBUILD_TEST=ON -DBUILD_SWIG=ON ../src
-or 
+
+or without gtest and swig run
 cmake ../src
 then
 make
@@ -45,3 +46,6 @@ cd swig/java run
 java -Djava.library.path=. -jar Main.jar
 
 java -Djava.library.path=. -jar Main.jar
+
+8) If you want to see all the variable in the cmake file, you can run:
+cmake -DDEBUG_CMAKE, it will print all the varaible out. 

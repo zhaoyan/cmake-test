@@ -4,14 +4,14 @@ include_directories(${PYTHON_INCLUDE_PATH})
 
 
 set(CMAKE_SWIG_FLAGS "")
-set_source_files_properties(../MysqrtSwig.i PROPERTIES CPLUSPLUS ON)
+set_source_files_properties(../MyMathSwig.i PROPERTIES CPLUSPLUS ON)
 include_directories(../../MathFunctions)
 #INSTALL(PROGRAMS test.py DESTINATION ${PROJECT_BINARY_DIR}/swig/python)
 configure_file(test.py ${PROJECT_BINARY_DIR}/swig/python/test.py COPYONLY)
 
 # Add swig module
-swig_add_module(MysqrtSwig python ../MysqrtSwig.i ../../MathFunctions/mysqrt.cxx)
-swig_link_libraries(MysqrtSwig ${PYTHON_LIBRARIES})
+swig_add_module(MyMathSwig python ../MyMathSwig.i ../../MathFunctions/MathFunctions.cxx)
+swig_link_libraries(MyMathSwig ${PYTHON_LIBRARIES})
 
 # Files to install with Python
 # set(PYTHON_INSTALL_FILES
