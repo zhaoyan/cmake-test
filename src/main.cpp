@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h> //12
 #include "sum.h"
 #include "testConfig.h"
 #include <vector>
