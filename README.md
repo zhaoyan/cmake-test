@@ -1,4 +1,4 @@
-# cmake-test 1
+# cmake-test 3
 This is a template dirctory for C/C++ Project. 
 
 1) git clone git@github.com:zhaoyan/cmake-test.git
